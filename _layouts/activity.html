@@ -1,0 +1,40 @@
+---
+layout: default
+---
+<p class="crumb">
+  {% if page.status == "Completed" %}<a href="{{ '/archive/' | relative_url }}">Archive</a>{% else %}<a href="{{ '/ongoing/' | relative_url }}">Ongoing</a>{% endif %}
+  / {{ page.category }}
+</p>
+<div class="detail">
+  <article>
+    <span class="badge {{ page.status | downcase }}">{{ page.status }}</span>
+    <h1>{{ page.title }}</h1>
+    <p class="lede">{{ page.summary }}</p>
+    {% if page.cover and page.cover != "" %}<img class="cover" src="{{ page.cover | relative_url }}" alt="">{% endif %}
+    <div class="facts">
+      <div><span>When</span>{% include when.html a=page %}</div>
+      <div><span>Where</span>{{ page.location | default: "—" }}</div>
+      <div><span>Led by</span>{{ page.lead | default: "—" }}</div>
+      <div><span>People helped</span>{{ page.beneficiaries | default: 0 }}</div>
+      <div><span>Amount spent</span>{% include inr.html n=page.amount_spent %}</div>
+      <div><span>Outcome</span>{{ page.outcome | default: "—" }}</div>
+    </div>
+    <div class="prose">{{ content }}</div>
+    <div class="edit-bar">
+      <span>Members can update this record.</span>
+      <a class="btn ghost" href="https://github.com/{{ site.github_repo }}/commits/{{ site.branch }}/{{ page.path }}">Edit history</a>
+      <a class="btn" href="https://github.com/{{ site.github_repo }}/edit/{{ site.branch }}/{{ page.path }}">✎ Edit this page</a>
+    </div>
+  </article>
+  <aside>
+    <h2>Updates</h2>
+    {% if page.updates and page.updates.size > 0 %}
+    <div class="timeline">
+      {% assign ups = page.updates | reverse %}
+      {% for u in ups %}<div><time>{{ u.date | date: "%-d %b %Y" }}</time>{{ u.note }}</div>{% endfor %}
+    </div>
+    {% else %}
+    <p class="meta">No updates logged yet.</p>
+    {% endif %}
+  </aside>
+</div>

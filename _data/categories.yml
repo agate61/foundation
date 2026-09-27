@@ -1,0 +1,10 @@
+# Shown as "What we do" tiles on the home page.
+# If you add one here, also add it to the category options in .pages.yml
+- name: "Education fees"
+  blurb: "Paying school or college fees so a student doesn't have to drop out."
+- name: "Tuition centre support"
+  blurb: "Helping community tuition centres with a teacher's stipend, rent or materials."
+- name: "School supplies"
+  blurb: "Bags, uniforms, books and stationery when the school year starts."
+- name: "Medical emergency"
+  blurb: "Stepping in when a student or their family faces a medical crisis."

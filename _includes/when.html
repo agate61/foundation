@@ -1,0 +1,1 @@
+{% assign s = include.a.date | date: "%-d %b %Y" %}{% assign e = include.a.end_date | date: "%-d %b %Y" %}{% if include.a.end_date and e != "" and e != s %}{{ s }} – {{ e }}{% elsif include.a.status == "Ongoing" %}Since {{ include.a.date | date: "%b %Y" }}{% else %}{{ s }}{% endif %}

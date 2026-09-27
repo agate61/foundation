@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.summary | default: site.description | escape }}">
+  <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Source+Sans+3:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="logo" href="{{ '/' | relative_url }}">{% include logo.html %}<span>Agate<small>Foundation</small></span></a>
+    <nav>
+      {% assign nav = "/|Home;/ongoing/|Ongoing;/archive/|Archive;/transparency/|Transparency;/about/|About us" | split: ";" %}
+      {% for item in nav %}{% assign p = item | split: "|" %}<a href="{{ p[0] | relative_url }}"{% if page.url == p[0] %} class="on"{% endif %}>{{ p[1] }}</a>{% endfor %}
+    </nav>
+    <a class="btn small" href="{{ '/support/' | relative_url }}">Support us</a>
+  </div>
+</header>
+
+<main class="wrap">
+{{ content }}
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <b>{{ site.data.org.name }}</b><br>
+      {{ site.data.org.registered_as }} · Reg. no. {{ site.data.org.registration_no }}<br>
+      <a href="mailto:{{ site.data.org.email }}">{{ site.data.org.email }}</a>
+    </div>
+    <div class="footer-links">
+      {% assign extra = site.pages | where_exp: "p", "p.path contains 'pages/'" | sort: "title" %}
+      {% for p in extra %}<a href="{{ p.url | relative_url }}">{{ p.title }}</a>{% endfor %}
+      <a href="{{ '/transparency/' | relative_url }}">Transparency</a>
+    </div>
+  </div>
+</footer>
+<script>
+  document.querySelectorAll("[data-inr]").forEach(function (el) {
+    el.textContent = "₹" + Number(el.dataset.inr || 0).toLocaleString("en-IN");
+  });
+</script>
+</body>
+</html>

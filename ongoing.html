@@ -1,0 +1,17 @@
+---
+layout: default
+title: Ongoing
+permalink: /ongoing/
+---
+{% assign all = site.activities | sort: "date" | reverse %}
+{% assign on = all | where: "status", "Ongoing" %}
+{% assign planned = all | where: "status", "Planned" %}
+
+<h1>Ongoing &amp; planned</h1>
+<p class="lede">What we're working on right now. Each record keeps a dated log of updates.</p>
+
+<div class="section-head"><h2>Ongoing</h2></div>
+{% if on.size > 0 %}<div class="grid">{% for a in on %}{% include card.html a=a %}{% endfor %}</div>{% else %}<p class="empty">Nothing ongoing right now.</p>{% endif %}
+
+<div class="section-head"><h2>Planned</h2></div>
+{% if planned.size > 0 %}<div class="grid">{% for a in planned %}{% include card.html a=a %}{% endfor %}</div>{% else %}<p class="empty">Nothing planned yet.</p>{% endif %}

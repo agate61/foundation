@@ -1,0 +1,6 @@
+<h2>The team</h2>
+<div class="team">
+  {% for m in site.data.team.members %}
+  <div class="member"><div class="avatar">{{ m.name | slice: 0 }}</div><b>{{ m.name }}</b><span>{{ m.role }}</span></div>
+  {% endfor %}
+</div>

@@ -1,0 +1,38 @@
+---
+layout: default
+---
+{% assign all = site.activities | sort: "date" | reverse %}
+{% assign done = all | where: "status", "Completed" %}
+{% assign live = all | where_exp: "a", "a.status != 'Completed'" %}
+{% assign spent = 0 %}{% assign helped = 0 %}
+{% for a in all %}{% assign spent = spent | plus: a.amount_spent %}{% assign helped = helped | plus: a.beneficiaries %}{% endfor %}
+
+<section class="hero">
+  <div>
+    <p class="eyebrow">{{ site.data.org.name }}</p>
+    <h1>{{ site.data.org.tagline }}</h1>
+    <p class="lede">We are a group of friends helping under-privileged students with school fees, supplies and tuition, and stepping in when a family faces a medical emergency. This site is our public logbook.</p>
+    <p><a class="btn" href="{{ '/ongoing/' | relative_url }}">See what we're doing now</a> <a class="btn ghost" href="{{ '/support/' | relative_url }}">Support us</a></p>
+  </div>
+  <div class="hero-art" aria-hidden="true"></div>
+</section>
+
+<section class="stats">
+  <div><b>{{ helped }}</b><span>students &amp; families helped</span></div>
+  <div><b>{% include inr.html n=spent %}</b><span>spent on support</span></div>
+  <div><b>{{ done.size }}</b><span>activities completed</span></div>
+  <div><b>{{ live.size }}</b><span>ongoing or planned</span></div>
+</section>
+
+<div class="section-head"><h2>What we do</h2></div>
+<div class="cats">
+  {% for c in site.data.categories %}{% assign n = site.activities | where: "category", c.name | size %}
+  <a class="cat-tile" href="{{ '/archive/' | relative_url }}?cat={{ c.name | uri_escape }}"><h3>{{ c.name }}</h3><p>{{ c.blurb }}</p><span>{{ n }} record{% if n != 1 %}s{% endif %}</span></a>
+  {% endfor %}
+</div>
+
+<div class="section-head"><h2>Happening now</h2><a href="{{ '/ongoing/' | relative_url }}">All ongoing →</a></div>
+{% if live.size > 0 %}<div class="grid">{% for a in live %}{% include card.html a=a %}{% endfor %}</div>{% else %}<p class="empty">Nothing ongoing right now.</p>{% endif %}
+
+<div class="section-head"><h2>Recently completed</h2><a href="{{ '/archive/' | relative_url }}">Full archive →</a></div>
+<div class="grid">{% for a in done limit: 3 %}{% include card.html a=a %}{% endfor %}</div>

@@ -1,0 +1,34 @@
+title: Agate Foundation
+description: Helping under-privileged students stay in school, and stepping in when a family faces a medical emergency.
+
+# Used by the "Edit this page" and "Edit history" buttons. Format: organization/repository
+github_repo: "agatefoundation/agatefoundation.github.io"
+branch: main
+
+# Leave empty for an ORG.github.io repository or a custom domain.
+# For a repository named anything else, use "/repository-name".
+baseurl: ""
+
+timezone: Asia/Kolkata
+markdown: kramdown
+future: true   # show Planned activities that have a future date
+
+collections:
+  activities:
+    output: true
+    permalink: /activities/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: activities
+    values:
+      layout: activity
+  - scope:
+      path: "pages"
+    values:
+      layout: page
+      permalink: /:basename/
+
+exclude:
+  - README.md

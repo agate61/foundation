@@ -1,0 +1,7 @@
+{% assign a = include.a %}
+<a class="card" href="{{ a.url | relative_url }}">
+  <div class="card-top"><span class="badge {{ a.status | downcase }}">{{ a.status }}</span><span class="cat">{{ a.category }}</span></div>
+  <h3>{{ a.title }}</h3>
+  <p class="meta">{% include when.html a=a %}</p>
+  <p>{{ a.summary }}</p>
+</a>

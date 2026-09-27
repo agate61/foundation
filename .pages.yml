@@ -1,0 +1,139 @@
+media:
+  input: assets/uploads
+  output: /assets/uploads
+
+content:
+  - name: activities
+    label: Activities & support
+    type: collection
+    path: _activities
+    filename: "{year}-{month}-{day}-{primary}.md"
+    view:
+      fields: [title, category, status, date]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: category
+        label: Type of support
+        type: select
+        options:
+          values: ["Education fees", "Tuition centre support", "School supplies", "Medical emergency", "Other"]
+      - name: status
+        label: Status
+        type: select
+        options:
+          values: [Planned, Ongoing, Completed]
+      - name: date
+        label: Start date
+        type: date
+        options:
+          format: yyyy-MM-dd
+      - name: end_date
+        label: End date
+        description: Leave empty while the activity is ongoing.
+        type: date
+        options:
+          format: yyyy-MM-dd
+      - name: location
+        label: Location
+        description: General area only. Never a home address or a specific class section.
+        type: string
+      - name: lead
+        label: Led by (member)
+        type: string
+      - name: beneficiaries
+        label: People helped
+        description: Number of students or families helped.
+        type: number
+      - name: amount_spent
+        label: Amount spent (₹)
+        description: Total so far. Must match the treasurer's register.
+        type: number
+      - name: outcome
+        label: Outcome
+        description: One line, e.g. "Fees covered for 7 students".
+        type: string
+      - name: summary
+        label: One-line summary
+        type: string
+      - name: cover
+        label: Photo (optional)
+        description: Photos of children only with a guardian's written consent. Prefer photos without faces.
+        type: image
+      - name: updates
+        label: Updates
+        description: Add new updates at the bottom. The site shows the newest first.
+        type: object
+        list: true
+        fields:
+          - name: date
+            label: Date
+            type: date
+            options:
+              format: yyyy-MM-dd
+          - name: note
+            label: What happened
+            type: text
+      - name: body
+        label: Write-up
+        description: No names, schools or medical details of the people helped.
+        type: rich-text
+
+  - name: pages
+    label: Pages
+    type: collection
+    path: pages
+    filename: "{primary}.md"
+    view:
+      fields: [title]
+      primary: title
+    fields:
+      - name: title
+        label: Page title
+        type: string
+        required: true
+      - name: body
+        label: Content
+        type: rich-text
+
+  - name: org
+    label: Foundation details
+    type: file
+    path: _data/org.yml
+    fields:
+      - { name: name, label: Name, type: string }
+      - { name: tagline, label: Tagline, type: string }
+      - { name: city, label: City, type: string }
+      - { name: registered_as, label: Registered as, type: string }
+      - { name: registration_no, label: Registration number, type: string }
+      - { name: registered_on, label: Registered on, type: string }
+      - { name: pan, label: PAN, type: string }
+      - { name: tax_exemption, label: "12A / 80G status", type: string }
+      - { name: email, label: Contact email, type: string }
+      - name: reports
+        label: Annual reports
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: file, label: PDF, type: file }
+
+  - name: team
+    label: Team
+    type: file
+    path: _data/team.yml
+    fields:
+      - name: members
+        label: Members
+        type: object
+        list: true
+        fields:
+          - { name: name, label: Name, type: string }
+          - { name: role, label: Role, type: string }

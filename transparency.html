@@ -1,0 +1,60 @@
+---
+layout: default
+title: Transparency
+permalink: /transparency/
+---
+{% assign org = site.data.org %}
+{% assign counted = site.activities | where_exp: "a", "a.status != 'Planned'" %}
+
+<h1>Transparency</h1>
+<p class="lede">Who we are, and where the money goes. The totals below are calculated automatically from our activity records.</p>
+
+<div class="facts">
+  <div><span>Registered as</span>{{ org.registered_as }}</div>
+  <div><span>Registration no.</span>{{ org.registration_no }}</div>
+  <div><span>Registered on</span>{{ org.registered_on }}</div>
+  <div><span>PAN</span>{{ org.pan }}</div>
+  <div><span>Tax exemption</span>{{ org.tax_exemption }}</div>
+  <div><span>Contact</span><a href="mailto:{{ org.email }}">{{ org.email }}</a></div>
+</div>
+
+<div class="section-head"><h2>Spending by financial year</h2></div>
+{% if counted.size > 0 %}
+{% assign oldest = counted | sort: "date" | first %}
+{% assign y0 = oldest.date | date: "%Y" | plus: -1 %}
+{% assign y1 = site.time | date: "%Y" | plus: 0 %}
+<table>
+  <thead><tr><th>Financial year</th><th class="num">Records</th><th class="num">People helped</th><th class="num">Spent</th></tr></thead>
+  <tbody>
+  {% for y in (y0..y1) reversed %}
+    {% assign lo = y | times: 100 | plus: 4 %}{% assign hi = y | plus: 1 | times: 100 | plus: 3 %}
+    {% assign n = 0 %}{% assign h = 0 %}{% assign s = 0 %}
+    {% for a in counted %}{% assign ym = a.date | date: "%Y%m" | plus: 0 %}{% if ym >= lo and ym <= hi %}{% assign n = n | plus: 1 %}{% assign h = h | plus: a.beneficiaries %}{% assign s = s | plus: a.amount_spent %}{% endif %}{% endfor %}
+    {% if n > 0 %}<tr><td>FY {{ y }}–{{ y | plus: 1 | modulo: 100 }}</td><td class="num">{{ n }}</td><td class="num">{{ h }}</td><td class="num">{% include inr.html n=s %}</td></tr>{% endif %}
+  {% endfor %}
+  </tbody>
+</table>
+<p class="meta">Financial years run April to March. Records count in the year they started; ongoing records show the amount spent so far.</p>
+
+<div class="section-head"><h2>By type of support (all years)</h2></div>
+{% assign groups = counted | group_by: "category" %}
+<table>
+  <thead><tr><th>Type</th><th class="num">Records</th><th class="num">People helped</th><th class="num">Spent</th></tr></thead>
+  <tbody>
+  {% for g in groups %}{% assign h = 0 %}{% assign s = 0 %}{% for a in g.items %}{% assign h = h | plus: a.beneficiaries %}{% assign s = s | plus: a.amount_spent %}{% endfor %}
+    <tr><td>{{ g.name }}</td><td class="num">{{ g.items.size }}</td><td class="num">{{ h }}</td><td class="num">{% include inr.html n=s %}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p class="empty">No records yet.</p>
+{% endif %}
+
+<div class="section-head"><h2>Annual reports</h2></div>
+{% if org.reports and org.reports.size > 0 %}
+<table><tbody>
+  {% for r in org.reports %}<tr><td>{{ r.title }}</td><td class="num">{% if r.file and r.file != "" %}<a href="{{ r.file | relative_url }}">Download PDF</a>{% else %}<span class="meta">Coming soon</span>{% endif %}</td></tr>{% endfor %}
+</tbody></table>
+{% endif %}
+
+<p class="note">This page shows totals only. Receipts, bank statements, donor details and beneficiary records are kept privately by the treasurer and are available to auditors and authorities on request.</p>
