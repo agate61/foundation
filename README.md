@@ -6,18 +6,6 @@ A free, static website for Agate Foundation: a public logbook of ongoing work, a
 - Site generator: Jekyll (built in to GitHub Pages, nothing to install)
 - Editing: Pages CMS (https://app.pagescms.org) for form-based editing, or the "Edit this page" button on GitHub
 
-## Set up
-
-1. Create a free GitHub organization for the foundation (e.g. agatefoundation) and invite each member.
-2. In it, create a public repository named agatefoundation.github.io (match your organization name exactly).
-3. Unzip this file. On the repository page choose Add file > Upload files and drag in everything INSIDE the unzipped folder (not the folder itself). Commit.
-4. Check that .pages.yml was uploaded. Files starting with a dot are hidden on most computers and often get skipped. If it is missing: Add file > Create new file, name it .pages.yml, and paste its contents.
-5. Settings > Pages > Deploy from a branch > main, / (root) > Save.
-6. In _config.yml set github_repo to "agatefoundation/agatefoundation.github.io".
-7. The site is live at https://agatefoundation.github.io after a minute or two.
-
-Different repository name? The site lives at https://NAME.github.io/REPO/, so set baseurl: "/REPO" in _config.yml.
-
 ## Editing with Pages CMS
 
 Sign in at https://app.pagescms.org with GitHub and open this repository. You will see:
