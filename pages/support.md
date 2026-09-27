@@ -12,4 +12,4 @@ Bank transfer and UPI details: [add once the foundation's bank account is open]
 
 ## Refer a student or volunteer
 
-If you know a student who needs help, or you'd like to volunteer, write to us at hello@example.org.
+If you know a student who needs help, or you'd like to volunteer, write to us at hello@agatefoundation.in.
