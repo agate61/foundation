@@ -45,6 +45,9 @@
   document.querySelectorAll("[data-inr]").forEach(function (el) {
     el.textContent = "₹" + Number(el.dataset.inr || 0).toLocaleString("en-IN");
   });
+  if (new URLSearchParams(location.search).has('edit')) {
+    document.querySelectorAll('.edit-bar').forEach(el => el.classList.remove('hidden'));
+  }
 </script>
 </body>
 </html>

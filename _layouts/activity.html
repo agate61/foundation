@@ -20,10 +20,10 @@ layout: default
       <div><span>Outcome</span>{{ page.outcome | default: "—" }}</div>
     </div>
     <div class="prose">{{ content }}</div>
-    <div class="edit-bar">
+    <div class="edit-bar hidden">
       <span>Members can update this record.</span>
-      <a class="btn ghost" href="https://github.com/{{ site.github_repo }}/commits/{{ site.branch }}/{{ page.path }}">Edit history</a>
-      <a class="btn" href="https://github.com/{{ site.github_repo }}/edit/{{ site.branch }}/{{ page.path }}">✎ Edit this page</a>
+      <a class="btn ghost" href="https://github.com/{{ site.github_repo }}/commits/{{ site.branch }}/{{ page.path }}" target="_blank">Edit history</a>
+      <a class="btn" href="https://github.com/{{ site.github_repo }}/edit/{{ site.branch }}/{{ page.path }}" target="_blank">✎ Edit this page</a>
     </div>
   </article>
   <aside>
