@@ -4,10 +4,10 @@ category: Flood Relief
 status: Completed
 date: 2018-11-21
 end_date: 2018-12-02
-location: "Alangadu, a village near Vedaranyam and Manal, a village near Thiruthuraipoondi - Tamil Nadu"
+location: "Alangadu, a village near Vedaranyam and Manali, a village near Thiruthuraipoondi - Tamil Nadu"
 lead: 
 beneficiaries: 150
-amount_spent: 40000
+amount_spent: 163500
 outcome: "Provided rice, groceries, bedsheets, moquito repellents to 150 families"
 summary: "Flood relief help to 2 villages in coastal Tamil Nadu after the cyclone Gaja"
 cover:
