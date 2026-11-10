@@ -5,6 +5,4 @@
 - name: "Tuition centre support"
   blurb: "Helping community tuition centres with a teacher's stipend, rent or materials."
 - name: "School supplies"
-  blurb: "Bags, uniforms, books and stationery when the school year starts."
-- name: "Medical emergency"
-  blurb: "Stepping in when a student or their family faces a medical crisis."
+  blurb: "Bags, and stationery when the school year starts."
