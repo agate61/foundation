@@ -1,10 +1,6 @@
 # Placeholder names. Replace with your members.
 members:
-  - name: Aditi
-    role: Founder trustee
-  - name: Karthik
-    role: Secretary
-  - name: Nisha
-    role: Treasurer
-  - name: Rahul
+  - name: Vijay
+    role: Managing Trustee
+  - name: Praveen
     role: Trustee
