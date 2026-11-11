@@ -7,7 +7,7 @@ end_date:
 location: "Chennai"
 lead: 
 beneficiaries: 120
-amount_spent: 6000
+amount_spent: 
 outcome: "Empowering 120 Children in North Chennai Through Free Tuition Centers"
 summary: "Free Tuition Centers for 120 Underprivileged Students (Classes II-XII) in North Chennai"
 cover:

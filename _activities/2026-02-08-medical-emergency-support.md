@@ -7,7 +7,7 @@ end_date: 2026-02-08
 location: "[Your city]"
 lead: Nisha
 beneficiaries: 1
-amount_spent: 25000
+amount_spent: 
 outcome: "Hospital deposit covered"
 summary: "Contribution towards hospital bills for a student's parent."
 cover:
