@@ -10,11 +10,11 @@ Our vision is simple: that more students get to stay in school, whatever their c
 
 ## What we do
 
-- **School and college fees** for the students who need it most
-- **Community tuition centres**: helping with a teacher's stipend, rent or materials
-- **School supplies**: bags, uniforms, books and stationery
-- **Medical emergencies**: in rare cases, we help with medical needs
+- **School and college fees**: Supporting students who need it the most
+- **Community tuition centres**: Covering teachers’ stipends and learning materials
+- **School supplies**: Providing bags, books, and stationery
+- **Medical emergencies**: Offering help in rare, critical cases
 
 ## How we decide who to help
 
-Most students come to us through our friends and known circle. We verify the authenticity and the need, and wherever possible pay the school or college directly rather than giving cash. Every rupee we spend is recorded in our books.
+Most of our students come to us through our friends and wider circle of acquaintances. We verify each student’s need and admission details with the school or college, and wherever possible, we pay the institution directly rather than handing over cash. Every rupee spent is recorded in our books.
