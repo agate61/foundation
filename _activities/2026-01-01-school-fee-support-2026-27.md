@@ -1,9 +1,9 @@
 ---
-title: "School fee support, 2026"
+title: "School fee support, 2026-27"
 category: Education fees
 status: Ongoing
-date: 2026-01-01
-end_date: 2026-12-12
+date: 2026-04-01
+end_date: 2027-03-31
 beneficiaries: 24
 amount_spent: 
 outcome: "Sponsored school fees for 25 students, Classes II–XII"
