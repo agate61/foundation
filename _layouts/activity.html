@@ -14,9 +14,7 @@ layout: default
     <div class="facts">
       <div><span>When</span>{% include when.html a=page %}</div>
       <div><span>Where</span>{{ page.location | default: "—" }}</div>
-      <div><span>Led by</span>{{ page.lead | default: "—" }}</div>
       <div><span>People helped</span>{{ page.beneficiaries | default: 0 }}</div>
-      <div><span>Amount spent</span>{% include inr.html n=page.amount_spent %}</div>
       <div><span>Outcome</span>{{ page.outcome | default: "—" }}</div>
     </div>
     <div class="prose">{{ content }}</div>
