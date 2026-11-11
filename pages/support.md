@@ -6,10 +6,10 @@ Every rupee we receive goes towards a student's fees, supplies, a tuition centre
 
 ## Donate
 
-Bank transfer and UPI details: [add once the foundation's bank account is open]
+Bank transfer and UPI details: Coming soon
 
-[Keep this line only after your 80G approval: Donations are eligible for tax deduction under Section 80G.]
+[Donations are eligible for tax deduction under Section 80G.]
 
 ## Refer a student or volunteer
 
-If you know a student who needs help, or you'd like to volunteer, write to us at hello@agatefoundation.in.
+If you know a student who needs help, or you'd like to volunteer, write to us at hello@agatefoundation.in
