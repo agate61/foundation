@@ -13,5 +13,3 @@ summary: "Flood relief help to 2 villages in coastal Tamil Nadu after the cyclon
 cover:
 updates: []
 ---
-
-In the aftermath of Cyclone Gaja, Agate Foundation reached out to 150 families in two coastal Tamil Nadu villages, providing essential relief to help them through the flooding.

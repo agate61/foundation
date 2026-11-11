@@ -13,5 +13,3 @@ summary: "School bags for our tuition center kids"
 cover:
 updates: []
 ---
-
-School Bags Distributed: For All Students in Our Free Tuition Centres
