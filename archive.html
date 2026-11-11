@@ -18,14 +18,13 @@ permalink: /archive/
 {% for y in years %}
 <h2 class="year" id="y{{ y.name }}">{{ y.name }}</h2>
 <table>
-  <thead><tr><th>Date</th><th>Activity</th><th class="num">Helped</th><th class="num">Spent</th></tr></thead>
+  <thead><tr><th>Date</th><th>Activity</th><th class="num">Helped</th></tr></thead>
   <tbody>
     {% for a in y.items %}
     <tr data-cat="{{ a.category }}">
       <td>{{ a.date | date: "%-d %b" }}</td>
       <td><a href="{{ a.url | relative_url }}">{{ a.title }}</a><small>{{ a.category }} · {{ a.outcome }}</small></td>
       <td class="num">{{ a.beneficiaries }}</td>
-      <td class="num">{% include inr.html n=a.amount_spent %}</td>
     </tr>
     {% endfor %}
   </tbody>
